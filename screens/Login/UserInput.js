@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import propTypes from "prop-types";
+import PropTypes from "prop-types";
 import Dimensions from "Dimensions";
 import {StyleSheet, View, TextInput, Image} from "react-native";
 
@@ -13,6 +13,7 @@ class UserInput extends Component {
                 <TextInput
                 style={styles.input}
                 placeholder={this.props.placeholder}
+                placeholderTextColor="rgba(255, 255, 255, 0.7)"
                 secureTextEntry={this.props.secureTextEntry}
                 autoCorrect={this.props.autoCorrect}
                 autoCapitalize={this.props.autoCapitalize}
@@ -26,12 +27,12 @@ class UserInput extends Component {
 }
 
 UserInput.propTypes = {
-    source: propTypes.number.isRequired,
-    placeholder: propTypes.string.isRequired,
-    secureTextEntry: propTypes.bool,
-    autoCorrect: propTypes.bool,
-    autoCapitalize: propTypes.string,
-    returnKeyType: propTypes.string
+    source: PropTypes.number.isRequired,
+    placeholder: PropTypes.string.isRequired,
+    secureTextEntry: PropTypes.bool,
+    autoCorrect: PropTypes.bool,
+    autoCapitalize: PropTypes.string,
+    returnKeyType: PropTypes.string
 }
 
 const styles= StyleSheet.create({
@@ -51,7 +52,7 @@ const styles= StyleSheet.create({
         paddingLeft: 50,
         color: "white",
         paddingHorizontal: 13,
-        borderBottomWidth: 0.5,
+        borderBottomWidth: 1,
         borderBottomColor:"#fff"
     }
 })

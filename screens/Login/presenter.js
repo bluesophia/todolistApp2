@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, StatusBar, KeyboardAvoidingView, Dimensions, View, Image } from "react-native"
+import { StyleSheet, StatusBar, KeyboardAvoidingView, Dimensions, View, Image, TouchableOpacity } from "react-native"
 import { KeepAwake, LinearGradient } from "expo";
 import PropTypes from "prop-types";
 
@@ -26,8 +26,6 @@ const LogInScreen = props => (
     <View style={styles.formContainer}>
         <View style={styles.inputContainer}>        
             <Form />
-        </View>  
-        <View>     
             <Button />
         </View>  
         <View>     
@@ -54,14 +52,12 @@ const styles=StyleSheet.create({
     timeContainer: {
         alignItems: 'center',
         flexGrow:1,
-        //justifyContent: 'center'
     },
     formContainer: {
         padding: 50,
         marginBottom: 100
     },
     inputContainer: {
-        //flexDirection: "row",
         justifyContent: "center",
         alignItems:"center"
     }
