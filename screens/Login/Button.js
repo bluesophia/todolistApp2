@@ -7,57 +7,38 @@ import {
   TouchableOpacity,
   Text,
   Image,
-  Alert
+  ActivityIndicator 
 } from "react-native";      
 
-class Button extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-          isLoading: false,
-        };
-        // this.submit = this.submit.bind(this);
-      }
-    //   _submit() {
-    //     if (this.state.isLoading) return;
-    
-    //     this.setState({isLoading: true});
-    //     Animated.timing(this.buttonAnimated, {
-    //       toValue: 1,
-    //       duration: 200,
-    //       easing: Easing.linear,
-    //     }).start();
-    
-    //     setTimeout(() => {
-    //       Actions.secondScreen();
-    //       this.setState({isLoading: false});
-    //     }, 2300);
-    //   }
-      render(){
-        return(
-                <TouchableOpacity
-                style={styles.button}
-                onPress={this.submit}
-                activeOpacity={1}>
-                {this.state.isLoading ? (
-                <ActivityIndicator size="large" color="white" />
-                ) : (
-                <Image 
-                resizeMode={'stretch'}
-                style={styles.loginbtn}
-                source={require("../../assets/images/login.png")} />
-                )}
-                </TouchableOpacity>
-        );
-    }
-    
-}
+const Button = props =>(
+      <TouchableOpacity onPressOut={props.submit}>
+        <View style={styles.button}>
+          {props.isSubmitting ? (
+            <ActivityIndicator size="large" color="white" marginTop={10}/>
+          ) : (
+            <Image 
+              resizeMode={'stretch'}
+              style={styles.loginbtn}
+              source={require("../../assets/images/login.png")} />
+              )}
+          )}
+        </View>
+      </TouchableOpacity>
+    )
+
+    Button.propTypes = {
+      isSubmitting: PropTypes.bool.isRequired,
+      email: PropTypes.string.isRequired,
+      password: PropTypes.string.isRequired,
+      changeEmail: PropTypes.func.isRequired,
+      changePassword: PropTypes.func.isRequired,
+      submit: PropTypes.func.isRequired
+     };
           
 const styles=StyleSheet.create({
       button: {
         alignItems: 'center',
         justifyContent: 'center',
-        zIndex: 100, 
       },
       loginbtn: {
         width: 35,

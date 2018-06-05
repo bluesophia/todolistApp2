@@ -20,11 +20,6 @@ class Date extends Component {
 }                
 
 const styles=StyleSheet.create({
-    // container:{
-    //     flex:3,
-    //     alignItems: "center",
-    //     justifyContent: "center"
-    // },
     datetext:{
         color: "#fff",
         fontSize: 12,
