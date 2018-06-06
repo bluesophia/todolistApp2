@@ -11,39 +11,28 @@ import {
 } from "react-native";      
 
 const Button = props =>(
-      <TouchableOpacity onPressOut={props.submit}>
-        <View style={styles.button}>
+      <TouchableOpacity 
+        onPressOut={props.submit} 
+        style={styles.button}
+        activeOpacity={1}
+        >
           {props.isSubmitting ? (
             <ActivityIndicator size="large" color="white" marginTop={10}/>
           ) : (
-            <Image 
-              resizeMode={'stretch'}
-              style={styles.loginbtn}
-              source={require("../../assets/images/login.png")} />
+            <Text style={styles.text}>Login</Text>
               )}
           )}
-        </View>
       </TouchableOpacity>
     )
-
-    Button.propTypes = {
-      isSubmitting: PropTypes.bool.isRequired,
-      email: PropTypes.string.isRequired,
-      password: PropTypes.string.isRequired,
-      changeEmail: PropTypes.func.isRequired,
-      changePassword: PropTypes.func.isRequired,
-      submit: PropTypes.func.isRequired
-     };
           
 const styles=StyleSheet.create({
       button: {
         alignItems: 'center',
         justifyContent: 'center',
       },
-      loginbtn: {
-        width: 35,
-        height:30,
-        marginTop:20
+      text: {
+        color: 'white',
+        backgroundColor: 'transparent',
       }
 })
 export default Button;

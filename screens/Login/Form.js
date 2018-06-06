@@ -17,13 +17,20 @@ const { width, height } = Dimensions.get("window");
 
 class Form extends Component {
       render(){
+        const {
+          email, 
+          changeEmail, 
+          password, 
+          changePassword,
+          showPass
+        } = this.props;
         return(
              <KeyboardAvoidingView behavior="padding">
                 <UserInput
                 source={require("../../assets/images/user.png")}
                 placeholder="email"
                 value={this.props.email}
-                onChangeText={this.props.changeEmail}
+                onChangeText={changeEmail}
                 autoCapitalize={'none'}
                 returnKeyType={'next'}
                 autoCorrect={false}
@@ -32,22 +39,37 @@ class Form extends Component {
                 source={require("../../assets/images/lock.png")}
                 placeholder="Password"
                 value={this.props.password}
-                onChangeText={this.props.changePassword}
+                onChangeText={changePassword}
                 returnKeyType={'done'}
                 autoCapitalize={'none'}
                 autoCorrect={false}
                 />
+                <TouchableOpacity
+                  activeOpacity={0.7}
+                  style={styles.btn}
+                  onPressOut={this.props.showPass}
+                >
+                  <Image 
+              resizeMode={'stretch'}
+              style={styles.loginbtn}
+              source={require("../../assets/images/login.png")} />
+                </TouchableOpacity>
              </KeyboardAvoidingView>
         )
     }
 }
-Form.propTypes = {
-  email: PropTypes.number.isRequired,
-  password: PropTypes.string.isRequired,
-  changeEmail: PropTypes.func.isRequired,
-  changePassword: PropTypes.func.isRequired,
-  submit: PropTypes.func.isRequired
- };
 
 
+
+const styles=StyleSheet.create({
+  btn: {
+    justifyContent: 'center', 
+    alignItems: 'center',
+  },
+  loginbtn: {
+    width: 35,
+    height:30,
+    marginTop:20
+  }
+})
 export default Form;

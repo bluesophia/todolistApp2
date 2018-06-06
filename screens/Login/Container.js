@@ -11,7 +11,9 @@ class Container extends Component {
   state = {
     email: "",
     password: "",
-    isSubmitting: false
+    isSubmitting: false,
+    showPass: true,
+    press: false,
   };
 
   render() {
@@ -22,6 +24,7 @@ class Container extends Component {
       {...this.state}
       changeUsername={this._changeUsername}
       changePassword={this._changePassword}
+      showPass={this._showPass}
     />;
     <Button 
       {...this.state}
@@ -48,13 +51,16 @@ class Container extends Component {
       }
     }
   };
+  _showPass = () => {
+      this.state.press === false
+        ? this.setState({showPass: false, press: true})
+        : this.setState({showPass: true, press: false});
+  }
 }
-Container.propTypes = {
-  email: PropTypes.number.isRequired,
-  password: PropTypes.string.isRequired,
-  changeEmail: PropTypes.func.isRequired,
-  changePassword: PropTypes.func.isRequired,
- };
 
+// Container.propTypes = {
+//   email: PropTypes.number.isRequired,
+//   password: PropTypes.string.isRequired
+// }
 
 export default Container;
