@@ -27,7 +27,7 @@ class UserInput extends Component {
 }
 
 UserInput.propTypes = {
-    source: PropTypes.number.isRequired,
+    //source: PropTypes.number.isRequired,
     placeholder: PropTypes.string.isRequired,
     secureTextEntry: PropTypes.bool,
     autoCorrect: PropTypes.bool,
