@@ -1,15 +1,15 @@
 import React, { Component } from "react";
-//import { Router, Scene, Actions, ActionConst } from "react-native-router-flux";
-import {
-  StackNavigator,
-} from 'react-navigation';
-import LoginScreen from './LoginScreen';
+import { Router, Scene } from "react-native-router-flux";
+// import {
+//   StackNavigator,
+// } from 'react-navigation';
+import LoginScreen from './presenter';
 import SecondScreen from './SecondScreen';
 
-const App = StackNavigator({
-  LoginScreen: { screen: LoginScreen },
-  SecondScreen: { screen: SecondScreen },
-});
+// const App = StackNavigator({
+//   LoginScreen: { screen: LoginScreen },
+//   SecondScreen: { screen: SecondScreen },
+// });
 
 class Main extends Component {
   render() {
