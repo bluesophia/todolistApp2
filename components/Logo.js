@@ -5,9 +5,7 @@ import { StyleSheet, View, Text, Image } from "react-native";
 class Logo extends Component {
     render(){
         return (
-        //    <View style={styles.container}>
                <Text style={styles.text}>TodoList</Text>
-          // </View> 
         )
     }
 }

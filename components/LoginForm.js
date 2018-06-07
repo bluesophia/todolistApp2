@@ -15,61 +15,47 @@ import SignupSection from "./SignupSection";
 
 const { width, height } = Dimensions.get("window");
 
-class Form extends Component {
+class LoginForm extends Component {
       render(){
         const {
-          email, 
-          changeEmail, 
-          password, 
+          isLoggedIn, 
+          isSubmitting,
+          user,
+          email,
+          password,
+          changeEmail,
           changePassword,
-          showPass
+          submit
         } = this.props;
         return(
              <KeyboardAvoidingView behavior="padding">
                 <UserInput
-                source={require("../../assets/images/user.png")}
+                value={email}
+                source={require("../assets/images/user.png")}
                 placeholder="email"
-                value={this.props.email}
                 onChangeText={changeEmail}
                 autoCapitalize={'none'}
                 returnKeyType={'next'}
                 autoCorrect={false}
                 />
                 <UserInput
-                source={require("../../assets/images/lock.png")}
+                source={require("../assets/images/lock.png")}
                 placeholder="Password"
-                value={this.props.password}
+                value={password}
                 onChangeText={changePassword}
                 returnKeyType={'done'}
                 autoCapitalize={'none'}
                 autoCorrect={false}
                 />
-                <TouchableOpacity
-                  activeOpacity={0.7}
-                  style={styles.btn}
-                  onPressOut={this.props.showPass}
-                >
-                  <Image 
-              resizeMode={'stretch'}
-              style={styles.loginbtn}
-              source={require("../../assets/images/login.png")} />
-                </TouchableOpacity>
              </KeyboardAvoidingView>
         )
     }
-}
-
-
+  }
 
 const styles=StyleSheet.create({
   btn: {
     justifyContent: 'center', 
     alignItems: 'center',
-  },
-  loginbtn: {
-    width: 35,
-    height:30,
-    marginTop:20
   }
 })
-export default Form;
+export default LoginForm;

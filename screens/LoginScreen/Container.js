@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import LogInScreen from "./presenter";
-import Form from "./Form.js";
-import Button from "./Button.js";
 import PropTypes from "prop-types";
 import { Alert } from "react-native";
 
@@ -12,22 +10,13 @@ class Container extends Component {
     email: "",
     password: "",
     isSubmitting: false,
-    showPass: true,
-    press: false,
   };
 
   render() {
     return <LogInScreen 
     {...this.state}
-    />;
-    <Form 
-      {...this.state}
       changeUsername={this._changeUsername}
       changePassword={this._changePassword}
-      showPass={this._showPass}
-    />;
-    <Button 
-      {...this.state}
       submit={this._submit}
     />;
   }
@@ -36,13 +25,14 @@ class Container extends Component {
   };
 
   _changePassword = password => {
-    this.setState({ password })
+    this.setState({ password });
   };
 
   _submit = () => {
     const { email,  password, isSubmitting } = this.state;
+    //const { navigate } = this.props.navigation;
     if (!isSubmitting) {
-      if (username && password) {
+      if (email && password) {
         this.setState({
           isSubmitting: true
         });
@@ -50,17 +40,17 @@ class Container extends Component {
         Alert.alert("All fields are required");
       }
     }
-  };
-  _showPass = () => {
-      this.state.press === false
-        ? this.setState({showPass: false, press: true})
-        : this.setState({showPass: true, press: false});
-  }
+   };
+
+
 }
 
-// Container.propTypes = {
-//   email: PropTypes.number.isRequired,
-//   password: PropTypes.string.isRequired
-// }
-
+Container.propTypes = {
+    isSubmitting: PropTypes.bool.isRequired,
+    email: PropTypes.string.isRequired,
+    password: PropTypes.string.isRequired,
+    changeUsername: PropTypes.func.isRequired,
+    changePassword: PropTypes.func.isRequired,
+    submit: PropTypes.func.isRequired
+  };
 export default Container;
